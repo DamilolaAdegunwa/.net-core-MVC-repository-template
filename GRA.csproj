@@ -1,0 +1,636 @@
+﻿ <Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-BorderService-B3E6C153-E536-444C-B559-AA6798216E41</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+    <ApplicationIcon></ApplicationIcon>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Win32Resource />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200201030932_Initial.cs" />
+    <Compile Remove="Migrations\20200201030932_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200603045513_Scaffolding_GSIN_DB.cs" />
+    <Compile Remove="Migrations\20200603045513_Scaffolding_GSIN_DB.Designer.cs" />
+    <None Remove="Home\cardprisoner.vue" />
+    <None Remove="Home\courts.vue" />
+    <None Remove="Home\departments.vue" />
+    <None Remove="Home\detainigagencies.vue" />
+    <None Remove="Home\facilities.vue" />
+    <None Remove="Home\facilitychambers.vue" />
+    <None Remove="Home\gsinacceptance.vue" />
+    <None Remove="Home\home.vue" />
+    <None Remove="Home\nationality.vue" />
+    <None Remove="Home\pdfreports.vue" />
+    <None Remove="Home\preventionmeasure.vue" />
+    <None Remove="Home\prisonershealth.vue" />
+    <None Remove="Home\qrgeneration.vue" />
+    <None Remove="Справочники (1).ods" />
+    <None Remove="Справочники (1).xlsx" />
+    <Compile Update="Data\FillData.cs">
+      <DependentUpon>ApplicationDbContext.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="JqueryDataTables.ServerSide.AspNetCoreWeb" Version="4.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
+    <PackageReference Include="QRCoder" Version="1.3.9" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.7.0" />
+    <PackageReference Include="Wkhtmltopdf.NetCore" Version="3.0.1" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Update="Pages\PdfReports\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\app-assets\vendors\js\waves.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Beating\beating.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Beating\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\animation_500_kdeahto4.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\animation_500_kdeqlt9v.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\animation_500_kdeqlod4.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\animation_500_kdequ5sy.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Pages\Sexes\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Remove="Templates\ControllerGenerator\MvcControllerWithContext.cshtml" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Connected Services\" />
+    <Folder Include="Templates\ControllerGenerator" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\PreventiveMeasure\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\PreventiveMeasure\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\PreventiveMeasure\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\PreventiveMeasure\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\PreventiveMeasure\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinCardCurrents\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinCardCurrents\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinCardCurrents\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinCardCurrents\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinCardCurrents\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinCardProbations\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinCardProbations\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinCardProbations\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinCardProbations\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinCardProbations\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCourthouseInfoController1\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCourthouseInfoController1\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCourthouseInfoController1\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCourthouseInfoController1\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCourthouseInfoController1\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDiscardMedical\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDiscardDocuments\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinInvestigatorRequests\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinInvestigatorRequests\CreateWithId.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinInvestigatorRequests\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinInvestigatorRequests\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinInvestigatorRequests\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinInvestigatorRequests\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCrimeInfo\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCrimeInfo\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCrimeInfo\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCrimeInfo\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCrimeInfo\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFacilityChambers\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFacilityChambers\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFacilityChambers\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFacilityChambers\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFacilityChambers\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDecisionToChangeThePreventiveMeasures\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDecisionToChangeThePreventiveMeasures\CreateWithId.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDecisionToChangeThePreventiveMeasures\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDecisionToChangeThePreventiveMeasures\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDecisionToChangeThePreventiveMeasures\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDecisionToChangeThePreventiveMeasures\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCourthouseInfo\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCourthouseInfo\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCourthouseInfo\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCourthouseInfo\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerCourthouseInfo\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFromChamberToChambers\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFromChamberToChambers\CreateWithId.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFromChamberToChambers\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFromChamberToChambers\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFromChamberToChambers\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFromChamberToChambers\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ArrivalDepartureViewModelForYouKnow\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDetainingAgencies\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDetainingAgencies\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDetainingAgencies\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDetainingAgencies\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDetainingAgencies\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinReferralToTheProsecutorCourts\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinReferralToTheProsecutorCourts\CreateWithId.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinReferralToTheProsecutorCourts\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinReferralToTheProsecutorCourts\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinReferralToTheProsecutorCourts\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinReferralToTheProsecutorCourts\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerHealthSnapshot\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerHealthSnapshot\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerHealthSnapshot\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerHealthSnapshot\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisonerHealthSnapshot\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Courthouses\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Courthouses\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Courthouses\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Courthouses\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Courthouses\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDepartureOfTheAccuseds\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDepartureOfTheAccuseds\CreateWithId.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDepartureOfTheAccuseds\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDepartureOfTheAccuseds\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDepartureOfTheAccuseds\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinDepartureOfTheAccuseds\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFacilities\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFacilities\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFacilities\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFacilities\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinFacilities\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinTravelHistories\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisoners\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisoners\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisoners\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisoners\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinPrisoners\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinTuberculosisTests\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinTuberculosisTests\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinTuberculosisTests\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinTuberculosisTests\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GsinTuberculosisTests\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\News\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\News\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\News\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\News\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\News\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\MisconductArticle\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\MisconductArticle\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\PostponedByCourt\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ProlongationByInvestigator\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ReleaseByCourthouseCancel\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ReleaseByInvestigationCancel\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ReleaseFromTheCourtroom\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ReleaseСertificate\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sentence\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\DocumentIssuingAuthorities\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\DocumentIssuingAuthorities\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\DocumentIssuingAuthorities\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\DocumentIssuingAuthorities\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\DocumentIssuingAuthorities\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaceCredentials\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaceCredentials\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaceCredentials\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaceCredentials\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaceCredentials\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaceNames\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaceNames\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaceNames\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaceNames\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaceNames\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaces\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaces\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaces\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaces\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlaces\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraApplicants\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraApplicants\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraApplicants\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraApplicants\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraApplicants\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFIOs\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFIOs\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFIOs\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFIOs\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFIOs\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFormOfAdvocacies\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFormOfAdvocacies\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFormOfAdvocacies\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFormOfAdvocacies\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFormOfAdvocacies\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPEntryInfoes\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPEntryInfoes\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPEntryInfoes\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPEntryInfoes\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPEntryInfoes\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusionBasements\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusionBasements\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusionBasements\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusionBasements\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusionBasements\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusions\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusions\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusions\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusions\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusions\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPHelpForms\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPHelpForms\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPHelpForms\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPHelpForms\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPHelpForms\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPs\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPs\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPs\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPs\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPs\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSpecializations\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSpecializations\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSpecializations\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSpecializations\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSpecializations\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensionBasements\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensionBasements\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensionBasements\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensionBasements\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensionBasements\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensions\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensions\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensions\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensions\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensions\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenceInfoes\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenceInfoes\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenceInfoes\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenceInfoes\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenceInfoes\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseBasements\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseBasements\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseBasements\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseBasements\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseBasements\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseNumbers\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseNumbers\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseNumbers\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseNumbers\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseNumbers\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStatus\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStatus\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStatus\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStatus\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStatus\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopBasements\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopBasements\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopBasements\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopBasements\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopBasements\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopInfoes\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopInfoes\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopInfoes\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopInfoes\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopInfoes\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminationBasements\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminationBasements\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminationBasements\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminationBasements\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminationBasements\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminations\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminations\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminations\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminations\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminations\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawalBasements\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawalBasements\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawalBasements\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawalBasements\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawalBasements\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawals\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawals\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawals\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawals\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawals\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraPersons\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraPersons\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraPersons\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraPersons\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraPersons\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sexes\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sexes\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sexes\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sexes\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sexes\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyInfo\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyInfo\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyInfo\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyInfo\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyInfo\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlace\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlace\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlace\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlace\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraAdvocacyWorkPlace\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraApplicant\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraApplicant\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraApplicant\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraApplicant\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraApplicant\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFIO\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFIO\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFIO\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFIO\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFIO\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFormOfAdvocacy\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFormOfAdvocacy\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFormOfAdvocacy\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFormOfAdvocacy\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraFormOfAdvocacy\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUP\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUP\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUP\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUP\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUP\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPEntryInfo\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPEntryInfo\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPEntryInfo\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPEntryInfo\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPEntryInfo\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusion\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusion\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusion\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusion\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusion\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusionBasement\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusionBasement\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusionBasement\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusionBasement\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPExclusionBasement\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPHelpForm\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPHelpForm\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPHelpForm\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPHelpForm\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPHelpForm\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSpecialization\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSpecialization\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSpecialization\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSpecialization\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSpecialization\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspension\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspension\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspension\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspension\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspension\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenceInfo\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenceInfo\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenceInfo\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenceInfo\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenceInfo\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseBasement\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseBasement\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseBasement\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseBasement\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseBasement\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseNumber\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseNumber\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseNumber\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseNumber\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseNumber\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopInfo\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopInfo\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopInfo\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopInfo\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopInfo\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTermination\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTermination\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTermination\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTermination\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTermination\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminationBasement\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminationBasement\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminationBasement\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminationBasement\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseTerminationBasement\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawal\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawal\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawal\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawal\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawal\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawalBasement\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawalBasement\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawalBasement\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawalBasement\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseWithdrawalBasement\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraPerson\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraPerson\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraPerson\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraPerson\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraPerson\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sex\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sex\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sex\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sex\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sex\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensionBasement\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensionBasement\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensionBasement\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensionBasement\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraGGUPSuspensionBasement\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopBasement\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopBasement\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopBasement\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopBasement\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\GraLicenseStopBasement\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\AccessDenied.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ConfirmEmail.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ExternalLogin.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ForgotPassword.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Lockout.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Login.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\LoginWith2fa.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Logout.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\DownloadPersonalData.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\Email.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\GenerateRecoveryCodes.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\PersonalData.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\SetPassword.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_Layout.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Register.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\RegisterConfirmation.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ResetPassword.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\_StatusMessage.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\_ViewImports.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Error.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ValidationScriptsPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewImports.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewStart.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\Components\DetailsComponent\DataEmpty.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\Components\DetailsComponent\DatagetSubjectByTin.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_CookieConsentPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_IndexByDatePV.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_LoginPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\UserActivityLogs\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\UserActivityLogs\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\UserActivityLogs\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\UserActivityLogs\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\UserActivityLogs\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Properties\launchSettings.json" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\PreventiveMeasure\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\PreventiveMeasure\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyWorkPlaceCredentials\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyWorkPlaceCredentials\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyWorkPlaceCredentials\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyWorkPlaceCredentials\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyWorkPlaceCredentials\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseStatus\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseStatus\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseStatus\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseStatus\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseStatus\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyInfo\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyInfo\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyInfo\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyInfo\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyInfo\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyWorkPlaceCredentials\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyWorkPlaceCredentials\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyWorkPlaceCredentials\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyWorkPlaceCredentials\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraAdvocacyWorkPlaceCredentials\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraApplicant\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraApplicant\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraApplicant\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraApplicant\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraApplicant\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraFormOfAdvocacy\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraFormOfAdvocacy\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraFormOfAdvocacy\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraFormOfAdvocacy\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraFormOfAdvocacy\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPEntryInfo\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPEntryInfo\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPEntryInfo\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPEntryInfo\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPEntryInfo\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPExclusionBasement\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPExclusionBasement\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPExclusionBasement\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPExclusionBasement\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPExclusionBasement\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPSpecialization\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPSpecialization\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPSpecialization\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPSpecialization\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraGGUPSpecialization\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenceInfo\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenceInfo\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenceInfo\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenceInfo\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenceInfo\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseNumber\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseNumber\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseNumber\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseNumber\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseNumber\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseStopInfo\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseStopInfo\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseStopInfo\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseStopInfo\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseStopInfo\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseTerminationBasement\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseTerminationBasement\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseTerminationBasement\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseTerminationBasement\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseTerminationBasement\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseWithdrawalBasement\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseWithdrawalBasement\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseWithdrawalBasement\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseWithdrawalBasement\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraLicenseWithdrawalBasement\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\Sex\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\Sex\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\Sex\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\Sex\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\Sex\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraPerson\Create.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraPerson\Delete.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraPerson\Details.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraPerson\Edit.cshtml" />
+    <UpToDateCheckInput Remove="Views\GraPerson\Index.cshtml" />
+  </ItemGroup>
+
+
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+
+</Project>
